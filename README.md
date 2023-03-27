@@ -346,3 +346,17 @@ Resolution: {{sample_width}}x{{sample_height}}
 | audio_sample_rate | Audio sample rate (Hz) | 44100 |
 | audio_bit_rate | Audio bit rate | 192000 |
 | frame_rate | Frame rate (fps) | 23.974 |
+
+## Docker
+
+Build:
+```shell
+docker build --pull -t vcsi:dev
+docker run -v "/data/video/:/data/videos" -ti vcsi:dev /bin/bash
+```
+
+Examples:
+```shell
+cd /data/videos/
+vcsi -t --template /app/tests/generic.jinja2 -g 4x10 -w 2560 --metadata-font-size 16 ./subdir/*.mkv
+```
