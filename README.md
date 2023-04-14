@@ -94,7 +94,7 @@ It runs fine also in a Docker container.
 
 Build the image:
 ```shell
-docker build -f packaging/docker/Dockerfile --pull -t vcsi:latest .
+docker build -f docker/Dockerfile --pull -t vcsi:latest .
 ```
 
 Run examples:
