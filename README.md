@@ -88,6 +88,24 @@ Must be in your PATH:
 * ffmpeg
 * ffprobe
 
+## Docker
+
+It runs fine also in a Docker container. 
+
+Build the image:
+```shell
+docker build -f docker/Dockerfile --pull -t vcsi:latest .
+```
+
+Run examples:
+```shell
+docker run --rm -ti -v "$(pwd):/app/media/" vcsi:latest
+docker run --rm -ti -v "$(pwd):/app/media/" vcsi:latest vcsi -h
+```
+Interactive shell:
+```
+docker run --rm -ti -v "/path/to/your/directory:/app/media/" vcsi:latest /bin/bash
+```
 
 ## Usage
 
