@@ -88,6 +88,24 @@ Must be in your PATH:
 * ffmpeg
 * ffprobe
 
+## Docker
+
+It runs fine also in a Docker container. 
+
+Build the image:
+```shell
+docker build -f packaging/docker/Dockerfile --pull -t vcsi:latest .
+```
+
+Run examples:
+```shell
+docker run --rm -ti -v "$(pwd):/app/media/" vcsi:latest
+docker run --rm -ti -v "$(pwd):/app/media/" vcsi:latest vcsi -h
+```
+Interactive shell:
+```
+docker run --rm -ti -v "/path/to/your/directory:/app/media/" vcsi:latest /bin/bash
+```
 
 ## Usage
 
@@ -346,17 +364,3 @@ Resolution: {{sample_width}}x{{sample_height}}
 | audio_sample_rate | Audio sample rate (Hz) | 44100 |
 | audio_bit_rate | Audio bit rate | 192000 |
 | frame_rate | Frame rate (fps) | 23.974 |
-
-## Docker
-
-Build:
-```shell
-docker build --pull -t vcsi:dev
-docker run -v "/data/video/:/data/videos" -ti vcsi:dev /bin/bash
-```
-
-Examples:
-```shell
-cd /data/videos/
-vcsi -t --template /app/tests/generic.jinja2 -g 4x10 -w 2560 --metadata-font-size 16 ./subdir/*.mkv
-```
